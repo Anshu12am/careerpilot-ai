@@ -17,7 +17,7 @@ const Navbar = () => {
             <path stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.9"/><Sparkles />
           </svg>
         </div>
-        <span className="text-white font-bold text-lg tracking-tight">ResumeAI</span>
+        <span className="text-white font-bold text-lg tracking-tight">CareerPilot AI</span>
       </div>
 
       <div>

@@ -67,14 +67,7 @@ function Tabs(){
   const handleATSAnalysis = async () =>{
     setLoading(true);
     try{
-      const resumeDataForATS = {
-  ...resumeData,
-  PersonalInfo: {
-    ...resumeData.PersonalInfo,
-    photo: undefined, // photo remove
-  },
-};
-      const result = await analyzeATS(resumeDataForATS, jobDescription);
+      const result = await analyzeATS(resumeData, jobDescription);
  
       setAnalysis(result.data);
       navigate(`/ats-analysis/${id}`);

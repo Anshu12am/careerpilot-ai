@@ -6,18 +6,9 @@ export const AuthContext = createContext()
 export const AuthProvider = ({children}) =>{
 
   const [user, setUser] = useState(null);
-  const [loading,setLoading] = useState(()=>{
-    const token = localStorage.getItem('token');
-    return !!token;
-  });
+  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
-
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-      return;
-    }
 
     const fetchUser = async () => {
       try {
@@ -25,9 +16,6 @@ export const AuthProvider = ({children}) =>{
         setUser(data?.user || null);
 
       } catch (error) {
-
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
 
         setUser(null);
 

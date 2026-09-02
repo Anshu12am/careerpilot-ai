@@ -13,10 +13,10 @@ const Footer = () => {
               <rect x="3" y="3" width="18" height="18" rx="4" fill="white" opacity="0.06"/><Sparkles />
             </svg>
           </div>
-          <span className="text-white font-semibold">ResumeAI</span>
+          <span className="text-white font-semibold">CareerPilot AI</span>
         </div>
 
-        <div className="text-slate-400">© 2026 ResumeAI</div>
+        <div className="text-slate-400">© 2026 CareerPilot AI</div>
       </div>
     </footer>
   )

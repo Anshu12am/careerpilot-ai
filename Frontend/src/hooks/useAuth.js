@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { AuthContext } from '../context/auth.context.jsx'
-import { register, login , verifyOTP , logout } from '../services/auth.api.js'
+import { register, login , logout } from '../services/auth.api.js'
 
 export const useAuth = () =>{
    const context = useContext(AuthContext)
@@ -9,7 +9,8 @@ export const useAuth = () =>{
   const handleLogin = async({email,password}) =>{
     setLoading(true)
     try{
-      await login({ email, password })  
+      const data =await login({ email, password })  
+      setUser(data.user)
       return true
     }catch(error){
       console.error("Login failed:", error.response?.data)
@@ -23,8 +24,11 @@ export const useAuth = () =>{
   const handleRegister = async({ email, password, confirmPassword }) =>{
     setLoading(true)
     try{
-      await register({ email, password, confirmPassword})
-      return true
+     const data =  await register({ email, password, confirmPassword})
+      
+     setUser(data.user)
+
+     return true
     }catch(error){
       console.error("Registration failed:", error.response?.data)
       return false
@@ -34,30 +38,27 @@ export const useAuth = () =>{
     }
   }
 
-  const handleOTPVerification = async({ email, otp }) =>{
-    setLoading(true)
-    try{
-      const data = await verifyOTP({ email, otp })
+  // const handleOTPVerification = async({ email, otp }) =>{
+  //   setLoading(true)
+  //   try{
+  //     const data = await verifyOTP({ email, otp })
       
-      localStorage.setItem("token", data.token);
-      setUser(data.user)
-      return true
-    }catch(error){
-       console.error("OTP verification failed:", error.response?.data)
-      return false
-    }
-    finally{
-      setLoading(false)
-    }
-  }
+  //     localStorage.setItem("token", data.token);
+  //     setUser(data.user)
+  //     return true
+  //   }catch(error){
+  //      console.error("OTP verification failed:", error.response?.data)
+  //     return false
+  //   }
+  //   finally{
+  //     setLoading(false)
+  //   }
+  // }
 
   const handleLogout = async () =>{
     setLoading(true)
     try{
       await logout()
-
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
 
       setUser(null)
       return true
@@ -69,5 +70,5 @@ export const useAuth = () =>{
     }
   }
     
-  return { user, setUser , loading, handleLogin, handleRegister, handleOTPVerification, handleLogout }
+  return { user, setUser , loading, handleLogin, handleRegister, handleLogout }
 }

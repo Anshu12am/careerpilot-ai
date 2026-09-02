@@ -20,7 +20,6 @@ const resumeSchema = new mongoose.Schema({
       linkedin: String,
       website: String,
       summary: String,
-      photo: String,
     },
     education:[
       {

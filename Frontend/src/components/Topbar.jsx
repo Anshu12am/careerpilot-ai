@@ -21,7 +21,7 @@ export default function Topbar() {
   return (
     <header className="fixed left-72 md:left-64 lg:left-72 right-0 top-0 z-20 glass backdrop-blur border-b border-white/6 py-3 px-6 flex items-center justify-between">
       <div className="flex items-center gap-4">
-        <div className="text-white font-bold text-lg">ResumeAI</div>
+        <div className="text-white font-bold text-lg">CareerPilot AI</div>
       </div>
 
       <div className="relative">

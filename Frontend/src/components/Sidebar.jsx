@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import {
-  Sparkles,Mail,FileText,LayoutDashboard 
+  Sparkles, Mail, FileText, LayoutDashboard, Bot
 } from 'lucide-react';
 
 const NavItem = ({ to, children }) => {
@@ -31,7 +31,7 @@ const navigate = useNavigate();
       <div className="mb-8 flex items-center gap-4">
         <div className="w-10 h-10 rounded-md bg-gradient-to-tr from-blue-400 to-purple-600 flex items-center justify-center  font-bold"><Sparkles className="w-4 h-4 text-white"/></div>
         <div>
-          <div className="text-white font-bold">ResumeAI</div>
+          <div className="text-white font-bold">CareerPilot AI</div>
         </div>
       </div>
 
@@ -49,6 +49,11 @@ const navigate = useNavigate();
         <NavItem to="/cover-letter">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" className="opacity-90"><path stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/><path stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/><Mail className="w-4 h-4"/></svg>
           <span>Cover Letter</span>
+        </NavItem>
+
+        <NavItem to="/career-agent">
+          <Bot className="w-4 h-4" />
+          <span>Career Agent</span>
         </NavItem>
       </nav>
 

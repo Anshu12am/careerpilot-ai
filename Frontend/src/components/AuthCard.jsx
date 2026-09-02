@@ -28,13 +28,12 @@ export default function AuthCard() {
 
   const handleSubmit = async (e) =>{
     e.preventDefault()
+    console.log("🔥 HANDLE SUBMIT CALLED");
     setIsSubmitting(true);
    const success = await handleLogin({email, password})
     
    if(success){
-    navigate("/otp-verification",{
-      state: { email }
-    })
+   navigate("/dashboard");
    }
    else{
     alert("Login failed. Please check your credentials and try again.")
@@ -45,7 +44,7 @@ export default function AuthCard() {
   return (
     <div className="w-full max-w-md mx-auto glass rounded-2xl p-8 shadow-neon hover-glow transition-all duration-300">
       <div className="text-center mb-6">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-white">Welcome to Resume AI</h2>
+        <h2 className="text-2xl md:text-3xl font-extrabold text-white">Welcome to CareerPilot AI</h2>
         <p className="mt-2 text-sm subtle">Sign in to continue</p>
       </div>
 
@@ -67,7 +66,7 @@ export default function AuthCard() {
           </div>
 
           <button type="submit" disabled={isSubmitting} className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-blue-400 to-purple-600 text-black font-semibold shadow-md hover:brightness-105 transition-all duration-300">
-            {isSubmitting ? "Sending OTP..." : "Sign in"}
+            {isSubmitting ? "Signing in..." : "Sign in"}
           </button>
         </div>
 </form>

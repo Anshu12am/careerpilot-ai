@@ -3,7 +3,6 @@ import React from 'react'
 export default function ResumePreview({resumeData}) {
 
   const hasData =
-   resumeData?.PersonalInfo?.photo ||
    resumeData?.PersonalInfo?.name ||
   resumeData?.PersonalInfo?.email ||
   resumeData?.PersonalInfo?.phone ||
@@ -65,19 +64,9 @@ export default function ResumePreview({resumeData}) {
                   Resume Preview
                 </span>
                 <div className="flex flex-col items-center gap-5 sm:flex-row sm:items-center">
-                  <div className="flex h-[110px] w-[110px] items-center justify-center overflow-hidden rounded-full border border-cyan-400/30 bg-slate-900/80 shadow-[0_0_30px_rgba(34,211,238,0.16)]">
-                    {resumeData?.PersonalInfo?.photo ? (
-                      <img
-                        src={resumeData.PersonalInfo.photo}
-                        alt="Profile"
-                        className="h-full w-full object-cover"
-                      />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cyan-500/20 via-slate-900 to-slate-800 text-4xl font-semibold text-cyan-200">
-                        {getInitials(resumeData?.PersonalInfo?.name)}
-                      </div>
-                    )}
-                  </div>
+                 <div className="flex h-[110px] w-[110px] items-center justify-center rounded-full border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 via-slate-900 to-slate-800 text-4xl font-semibold text-cyan-200 shadow-[0_0_30px_rgba(34,211,211,0.16)]">
+  {getInitials(resumeData?.PersonalInfo?.name)}
+</div>
                   {resumeData?.PersonalInfo?.name && (
                     <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white">
                       {resumeData.PersonalInfo.name}

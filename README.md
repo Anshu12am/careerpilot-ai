@@ -1,4 +1,4 @@
-# ResumeAI
+# CareerPilot AI
 
 **AI-powered Resume Builder & ATS Analyzer** built with **React, Node.js, Express, MongoDB, and Tailwind CSS**.
 

@@ -4,11 +4,11 @@ import Login from "./Login";
 import Register from "./Register";
 import Dashboard from "./Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import OtpVerification from "./OtpVerification";
 import ResumeBuilder from "./ResumeBuilder";
 import ResumePreviewPage from "./preview/ResumePreviewPage";
 import ATSAnalysisPage from "./atsOptimization/ATSAnalysisPage";
 import CoverLetterGenerator from "./CoverLetterGenerator";
+import CareerAgentPage from "./CareerAgentPage";
 
 export const router = createBrowserRouter([
 
@@ -32,10 +32,10 @@ export const router = createBrowserRouter([
        </ProtectedRoute> 
     )
   },
-  {
-    path:"/otp-verification",
-    element: <OtpVerification />
-  },
+  // {
+  //   path:"/otp-verification",
+  //   element: <OtpVerification />
+  // },
   {
     path:"/resume-builder",
     element: <ResumeBuilder />
@@ -57,13 +57,18 @@ export const router = createBrowserRouter([
     )
   },
   {
+    path: "/career-agent",
+    element: (
+      <ProtectedRoute>
+        <CareerAgentPage />
+      </ProtectedRoute>
+    )
+  },
+  {
     path: "/resume/edit/:id",
     element: <ResumeBuilder />
   },
-  // {
-  //   path: "/cover-letter/edit/:id",
-  //   element: <CoverLetterGenerator />
-  // },
+
   {
     path: "/cover-letter/preview/:id",
     element:(

@@ -41,16 +41,7 @@ export default function CoverLetterCard({ coverLetter,onDelete }) {
   
  
   const actions = [
-    // {
-    //   key: 'edit',
-    //   label: 'Edit',
-    //   icon: (
-    //     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="stroke-current">
-    //       <path d="M4 20h4l10-10-4-4L4 16v4Z" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    //       <path d="m14 6 4 4" strokeWidth="1.6" strokeLinecap="round" />
-    //     </svg>
-    //   ),
-    // },
+ 
     {
       key: 'preview',
       label: 'Preview',

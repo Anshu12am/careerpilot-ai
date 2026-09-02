@@ -21,55 +21,13 @@ const Field = ({label, placeholder, icon, value, onChange}) => (
 )
 
 export default function PersonalInfo({resumeData, setResumeData}) {
-  const handlePhotoUpload = (e) => {
-    const file = e.target.files?.[0]
-    if (!file) return
-
-    const reader = new FileReader()
-    reader.onload = () => {
-      setResumeData({
-        ...resumeData,
-        PersonalInfo: {
-          ...resumeData.PersonalInfo,
-          photo: reader.result,
-        },
-      })
-    }
-    reader.readAsDataURL(file)
-  }
+ 
+  
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h3 className="text-sm font-semibold tracking-wide">PERSONAL INFO</h3>
-      </div>
-
-      <div className="flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-cyan-400/30 bg-slate-900/80 text-cyan-300 shadow-[0_0_24px_rgba(34,211,238,0.16)]">
-            {resumeData.PersonalInfo.photo ? (
-              <img
-                src={resumeData.PersonalInfo.photo}
-                alt="Profile"
-                className="h-full w-full rounded-full object-cover"
-              />
-            ) : (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            )}
-          </div>
-          <div>
-            <p className="text-sm font-semibold text-white">Profile Photo</p>
-            <p className="text-xs text-slate-400">Optional. JPG, PNG, or WEBP.</p>
-          </div>
-        </div>
-
-        <label className="inline-flex cursor-pointer items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-200 transition hover:bg-cyan-500/20">
-          <span>Upload Photo</span>
-          <input type="file" accept="image/*" className="hidden" onChange={handlePhotoUpload} />
-        </label>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -9,8 +9,9 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://resume-ai-beta-two.vercel.app'
-  ]
+    
+  ],
+  credentials: true,
 }));
 
 const authRoutes = require('./routes/auth.routes');
@@ -25,5 +26,8 @@ app.use('/api/resume', resumeRoutes);
 const coverLetterRoutes = require('./routes/coverLetter.routes')
 app.use('/api/coverLetter', coverLetterRoutes)
 
+
+const careerAgentRoutes = require('./routes/careerAgent.routes')
+app.use('/api/career-agent', careerAgentRoutes)
 
 module.exports = app;

@@ -9,7 +9,7 @@ authRouter.post("/login",authController.login)
 
 authRouter.get("/get-me",authMiddleware.authUser,authController.getMe)
 
-authRouter.post("/verify-otp",authController.verifyOTP)
+// authRouter.post("/verify-otp",authController.verifyOTP)
 
 authRouter.post("/logout",authController.logout)
 

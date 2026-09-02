@@ -40,11 +40,10 @@ export default function RegisterCard() {
     
     const success = await handleRegister({email, password, confirmPassword})
     if(success){
-      navigate("/otp-verification", {
-        state: { email }
-      })
+      toast.success("Registration successful");
+      navigate("/dashboard");
     }else{
-      toast.error('User already exists');
+      toast.error('Registration failed');
     }
     setIsSubmitting(false);
   }

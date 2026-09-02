@@ -1,19 +1,11 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'https://resume-ai-api-z9af.onrender.com',
+  baseURL: "http://localhost:3000",
   timeout: 120000,
+  withCredentials: true,
 })
 
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-
-  return config;
-});
 
 export async function register({ email, password, confirmPassword }){
 
@@ -56,20 +48,20 @@ export async function getMe(){
 }
 
 
-export async function verifyOTP({ email, otp }){
-  try{
-    const response = await api.post('/api/auth/verify-otp',{
-      email,
-      otp
-    })
-    return response.data;
+// export async function verifyOTP({ email, otp }){
+//   try{
+//     const response = await api.post('/api/auth/verify-otp',{
+//       email,
+//       otp
+//     })
+//     return response.data;
 
 
-  }catch(error){
-    console.error("Error verifying OTP:", error);
-    throw error;
-  }
-}
+//   }catch(error){
+//     console.error("Error verifying OTP:", error);
+//     throw error;
+//   }
+// }
 
 export async function logout(){
   try{
