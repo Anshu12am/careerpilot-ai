@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const app = express();
+const path = require('path');
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
@@ -29,5 +30,14 @@ app.use('/api/coverLetter', coverLetterRoutes)
 
 const careerAgentRoutes = require('./routes/careerAgent.routes')
 app.use('/api/career-agent', careerAgentRoutes)
+
+
+app.use(express.static(path.join(__dirname, '../Frontend/dist')));
+
+app.use((req, res) => {
+  res.sendFile(
+    path.join(__dirname, '../Frontend/dist/index.html')
+  );
+});
 
 module.exports = app;
