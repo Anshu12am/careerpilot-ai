@@ -75,6 +75,14 @@ The system retrieves relevant career knowledge from Pinecone and combines it wit
 - Resend
 - Groq
 
+ ## 🎥 Project Demo
+
+[▶️ Watch CareerPilot AI Demo](https://youtu.be/Dl7YRwgw-KU)
+
+The video demonstrates the main features and user flow of CareerPilot AI,
+including resume building, ATS analysis, AI Career Agent, RAG-based
+responses, and cover letter generation.
+
 ## Deployment
 
 The application is containerized using Docker and deployed on an AWS EC2 instance.
